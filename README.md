@@ -44,8 +44,6 @@ Privacy - Photo Library Usage Description 是否允许访问相册
 
 #### 4.首先把demo下载下来
 
-![demo截图](http://upload-images.jianshu.io/upload_images/2829694-090011dc648dcd91.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
 #### 5.打开项目将下面的文件拷贝到自己的工程中：
 
 * FBYBase
