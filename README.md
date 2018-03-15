@@ -1,28 +1,6 @@
-## 一：简介
 
-快捷支付涉及到方方面面，同时安全问题既是用户所关心的，也是制作者不容忽视的重要部分。
-比如涉及到支付和金钱的app，商户端app等等，都需要进行实名认证，实名认证可以通过银行卡认证和身份证认证。
-今天我就和大家介绍一下银行卡识别功能，这个方法是通过图像识别，可以快速、高效的识别银行卡信息。
 
-## 二：原理
-
-经实践发现，只要银行卡处于摄像头预览图层中并且银行卡号与识别线重合，即不用完全对准银行卡也可以读取到银行卡号。
-
-与身份证识别不同的是，银行卡识别主要识别银行卡号，因此获取到的图像主要是银行卡号位置。
-
-在获取到银行卡号之后，通过信息对比获取到银行卡的开户行。在银行卡信息页面可以展示出银行卡识别截图、银行卡开户行、银行卡号。
-
-## 三：项目展示
-
-#### 1.扫描银行卡页面
-
-![扫描银行卡页面](http://upload-images.jianshu.io/upload_images/2829694-a9f000cce5adba7c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-#### 2.信息展示页面
-
-![信息展示页面](http://upload-images.jianshu.io/upload_images/2829694-474fd5e415a22318.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-## 四：Demo接入流程
+## Demo接入流程
 
 #### 1.导入ReactiveCocoa框架
 
@@ -69,6 +47,8 @@ Privacy - Photo Library Usage Description 是否允许访问相册
 ![demo截图](http://upload-images.jianshu.io/upload_images/2829694-090011dc648dcd91.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 #### 5.打开项目将下面的文件拷贝到自己的工程中：
+
+* FBYBase
 * bank_card
 * BankData
 
@@ -76,13 +56,29 @@ Privacy - Photo Library Usage Description 是否允许访问相册
 
 在项目中需要使用的页面，增加引用代码：
 ```
+#import "IDCardCaptureViewController.h"
+
 #import "FBYBankCardViewController.h"
+
+#import "TIDCardCaptureViewController.h"
 ```
-在点击扫描身份证的点击事件中，跳转页面：
+在点击扫描银行卡的点击事件中，跳转页面：
 ```
 FBYBankCardViewController *bcvc = [[FBYBankCardViewController alloc]init];
 
 [self.navigationController pushViewController:bcvc animated:YES];
+```
+在点击扫描身份证头像面的点击事件中，跳转页面：
+```
+IDCardCaptureViewController *idcvc = [[IDCardCaptureViewController alloc]init];
+    
+[self.navigationController pushViewController:idcvc animated:YES];
+```
+在点击扫描身份证国徽面的点击事件中，跳转页面：
+```
+TIDCardCaptureViewController *idcvc = [[TIDCardCaptureViewController alloc]init];
+    
+[self.navigationController pushViewController:idcvc animated:YES];
 ```
 到此项目就接入完成！！！
 
